@@ -74,7 +74,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun uploadImagetoFirebase(){
-        if (selectedpictureUri == null) return;
+        if (selectedpictureUri == null) return
         val filename = UUID.randomUUID().toString()
         val ref = FirebaseStorage.getInstance().getReference("/images/$filename")
         ref.putFile(selectedpictureUri!!).
