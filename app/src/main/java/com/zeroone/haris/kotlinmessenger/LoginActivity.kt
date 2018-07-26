@@ -3,6 +3,9 @@ package com.zeroone.haris.kotlinmessenger
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -12,8 +15,21 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         login_btn.setOnClickListener{
-            //TODO:login
-
+            val email = email_et_login.text.toString()
+            val password = password_et_login.text.toString()
+            if(email.isEmpty() || password.isEmpty()){
+                Toast.makeText(this,"Please enter Email and Password",Toast.LENGTH_SHORT)
+                return@setOnClickListener
+            }
+            FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener {
+                if(!it.isSuccessful){
+                    Log.d("Main","Login failed!")
+                    return@addOnCompleteListener
+                }
+                //login successful
+                Log.d("Main","Login :Successful")
+                //TODO:move to next page
+            }
         }
 
         newRegister_tv.setOnClickListener{

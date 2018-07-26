@@ -7,6 +7,37 @@
     android:background="@android:color/holo_green_light"
     tools:context=".MainActivity">
 
+    <Button
+        android:id="@+id/addPicture_btn"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_button_addpicture"
+        android:text="Add Picture"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/circleimageview"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/addPicture_btn"
+        app:layout_constraintEnd_toEndOf="@+id/addPicture_btn"
+        app:layout_constraintStart_toStartOf="@+id/addPicture_btn"
+        app:layout_constraintTop_toTopOf="@+id/addPicture_btn" />
+
     <EditText
         android:id="@+id/username_et"
         android:layout_width="0dp"
@@ -15,15 +46,16 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:background="@android:color/white"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_edittext_login_register"
         android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
-        android:paddingLeft="10dp"
+        android:paddingLeft="30dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/addPicture_btn" />
 
     <EditText
         android:id="@+id/email_et"
@@ -34,13 +66,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/white"
+        android:background="@drawable/rounded_edittext_login_register"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/username_et"
-        app:layout_constraintStart_toStartOf="@+id/username_et"
+        android:paddingLeft="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_et" />
 
     <EditText
@@ -52,13 +84,13 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@android:color/white"
+        android:background="@drawable/rounded_edittext_login_register"
         android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        app:layout_constraintEnd_toEndOf="@+id/email_et"
-        app:layout_constraintStart_toStartOf="@+id/email_et"
+        android:paddingLeft="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_et" />
 
     <Button
@@ -69,8 +101,10 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_button_login_register"
         android:text="Register"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="@+id/password_et"
         app:layout_constraintStart_toStartOf="@+id/password_et"
         app:layout_constraintTop_toBottomOf="@+id/password_et" />
@@ -89,4 +123,6 @@
         app:layout_constraintEnd_toEndOf="@+id/register_btn"
         app:layout_constraintStart_toStartOf="@+id/register_btn"
         app:layout_constraintTop_toBottomOf="@+id/register_btn" />
+
+
 </android.support.constraint.ConstraintLayout>
