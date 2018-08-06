@@ -96,6 +96,10 @@ class MainActivity : AppCompatActivity() {
 
         ref.setValue(user).addOnSuccessListener {
             Log.d("Main","Saved user successfully!")
+            val intent = Intent(this, LatestMessagesActivity::class.java)
+            //clear flags so pressing back does not bring us back to the previous screen
+            intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(intent)
         }.addOnFailureListener {
             Log.d("Main","$uid $it.message.toString()")
         }

@@ -18,17 +18,20 @@ class LoginActivity : AppCompatActivity() {
             val email = email_et_login.text.toString()
             val password = password_et_login.text.toString()
             if(email.isEmpty() || password.isEmpty()){
-                Toast.makeText(this,"Please enter Email and Password",Toast.LENGTH_SHORT)
+                Toast.makeText(this,"Please enter Email and Password",Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
             FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener {
                 if(!it.isSuccessful){
                     Log.d("Main","Login failed!")
+                    Toast.makeText(this,"Invalid Email or Password",Toast.LENGTH_SHORT).show()
                     return@addOnCompleteListener
                 }
                 //login successful
                 Log.d("Main","Login :Successful")
-                //TODO:move to next page
+                val intent = Intent(this,LatestMessagesActivity::class.java)
+                intent.flags=Intent.FLAG_ACTIVITY_CLEAR_TASK.or(Intent.FLAG_ACTIVITY_NEW_TASK)
+                startActivity(intent)
             }
         }
 
